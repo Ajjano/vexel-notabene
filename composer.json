@@ -1,0 +1,20 @@
+{
+    "name": "vexel/notabene-lib",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vexel\\NotabeneLib\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alina",
+            "email": "aliloninan@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "7.9.x-dev"
+    }
+}
