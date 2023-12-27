@@ -28,6 +28,7 @@ class Transaction
     public function validateTransfer($params)
     {
         $res = $this->sendRequest('POST', $params, 'tx/validate');
+        return $res;
     }
 
 
@@ -120,7 +121,7 @@ class Transaction
 
         if ($res['addressSource'] === 'UNKNOWN') {
 
-            return ['status'=>'error', 'msg'=>'You should identify your counterparty!'];
+            return ['status' => 'error', 'msg' => 'You should identify your counterparty!'];
             // txSimpleVASPs
             //tfSimpleVASPs
         }
@@ -130,5 +131,31 @@ class Transaction
             $params['beneficiaryVASPname'] = $res['beneficiaryVASPname'];
             $this->txCreate($params);
         }
+    }
+
+
+
+
+
+    public function addTransactionHash($params)
+    {
+        try {
+            $this->sendRequest('POST', $params, 'tx/update');
+            return true;
+        } catch (\Exception $exception) {
+            return false;
+        }
+
+    }
+
+
+
+
+
+    public function registerAddress($params)
+    {
+        $res = $this->sendRequest('POST', $params, 'address/registerCustomer');
+
+        return $res;
     }
 }

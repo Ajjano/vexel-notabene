@@ -13,6 +13,7 @@ class FullyValidateTransferRequest extends \Illuminate\Foundation\Http\FormReque
     public function rules(): array
     {
         return [
+            //description
           'transactionAsset'=>'required|string',
             'transactionAmount'=>'required|string|regex:/^0*[1-9][0-9]*$/i',
             'transactionBlockchainInfo'=>'required|array',

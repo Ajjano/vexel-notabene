@@ -17,5 +17,6 @@ class NotabeneProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/notabene.php' =>  config_path('notabene.php'),
         ], 'config');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
     }
 }
