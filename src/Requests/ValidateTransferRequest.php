@@ -28,8 +28,8 @@ class ValidateTransferRequest extends \Illuminate\Foundation\Http\FormRequest
 
             // beneficiaryProof object
             'beneficiaryProof' => 'array|nullable',
-//            'travelRuleBehavior' => 'boolean|nullable',
-//            'network' => 'string|nullable',
+            'travelRuleBehavior' => 'boolean|nullable',
+            'network' => 'string|nullable',
         ];
     }
 }
