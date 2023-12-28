@@ -67,7 +67,7 @@ class TransactionController
 
 
     /**
-     * Test
+     * Fully Validate your transfer with this method
      *
      * @param FullyValidateTransferRequest $request
      */
@@ -213,10 +213,10 @@ class TransactionController
 
 
 
-    public function receiveTravelRuleMsg()
-    {
-        //automatically confirm that a blockchain address is yours
-    }
+//    public function receiveTravelRuleMsg()
+//    {
+//        //automatically confirm that a blockchain address is yours
+//    }
 }
 
 
