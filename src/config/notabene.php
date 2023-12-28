@@ -1,4 +1,5 @@
 <?php
 return array(
-  'host'=>'https://api.notabene.id/'
+  'host'=>'https://api.notabene.id/',
+    'test_host'=>'https://api.notabene.dev'
 );

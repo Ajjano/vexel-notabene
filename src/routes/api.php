@@ -4,6 +4,7 @@ use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Vexel\NotabeneLib\Controllers\TransactionController;
+use Vexel\NotabeneLib\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,18 @@ use Vexel\NotabeneLib\Controllers\TransactionController;
 
 
 Route::middleware('api')->prefix('api')->group(function (){
-    Route::post('/validateTransfer', [TransactionController::class, 'validateTransfer'])->name('validateTransfer');
-    Route::post('/fullyValidateTransfer', [TransactionController::class, 'fullyValidateTransfer'])->name('fullyValidateTransfer');
-    Route::post('/registerAddress', [TransactionController::class, 'registerAddress'])->name('registerAddress');
+    Route::post('/validate-transfer', [TransactionController::class, 'validateTransfer'])->name('validateTransfer');
+    Route::post('/fully-validate-transfer', [TransactionController::class, 'fullyValidateTransfer'])->name('fullyValidateTransfer');
+    Route::post('/register-address', [TransactionController::class, 'registerAddress'])->name('registerAddress');
+
+    Route::get('/list-vasps', [TransactionController::class, 'listVasps'])->name('listVasps');
+    Route::post('/generate-access-token', [TransactionController::class, 'generateAccessToken'])->name('generateAccessToken');
 
     Route::resource('transaction',TransactionController::class)->only(['index', 'update']);
+
+
+
+    Route::post('/webhook/register/{vaspDID}', [WebhookController::class, 'registerWebhook'])->name('registerWebhook');
+    Route::delete('/webhook/delete/{vaspDID}', [WebhookController::class, 'deleteWebhook'])->name('deleteWebhook');
 
 });
