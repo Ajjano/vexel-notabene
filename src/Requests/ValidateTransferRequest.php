@@ -22,12 +22,14 @@ class ValidateTransferRequest extends \Illuminate\Foundation\Http\FormRequest
             'beneficiaryVASPname' => 'string|nullable',
             'beneficiaryName' => 'string|nullable',
             'beneficiaryAccountNumber' => 'string|nullable',
-            // beneficiaryProof object
-            'beneficiaryAddress' => 'array|nullable',
+
             // beneficiaryAddress object
+            'beneficiaryAddress' => 'array|nullable',
+
+            // beneficiaryProof object
             'beneficiaryProof' => 'array|nullable',
-            'travelRuleBehavior' => 'boolean|nullable',
-            'network' => 'string|nullable',
+//            'travelRuleBehavior' => 'boolean|nullable',
+//            'network' => 'string|nullable',
         ];
     }
 }

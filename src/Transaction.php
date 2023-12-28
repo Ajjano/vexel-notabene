@@ -96,7 +96,7 @@ class Transaction
         $res = $this->sendRequest('GET', ['q' => $nameOfTheVASP, 'fields' => 'did, name, verificationStatus, country, website, isRegulated', 'per_page' => 100], 'tf/simple/vasps');
 
         if (isset($res['vasps'])) {
-            return ['status' => 'ok', 'vasps' => $res['vasps']];
+            return ['status' => 'ok', 'vasps' => $res];
         } else {
             return ['status' => 'error', 'vasps' => [], 'msg' => $res['err']['message']];
 
@@ -157,5 +157,23 @@ class Transaction
         $res = $this->sendRequest('POST', $params, 'address/registerCustomer');
 
         return $res;
+    }
+
+
+
+
+
+    public function getDid(array $params)
+    {
+        $this->sendRequest('GET', $params, 'auth/viewer');
+    }
+
+
+
+
+
+    public function generateAccessToken(array $params)
+    {
+        return $this->sendRequest('POST', $params, 'oauth/token');
     }
 }
